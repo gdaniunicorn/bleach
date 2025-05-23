@@ -1,0 +1,6 @@
+code,name,gender,race,age,height,hair,location,arc
+ichigo,Ichigo Kurosaki,Male,Hybrid,1-20,181,ginger,Karakura Town,Agent of the Shinigami Arc
+keigo,Keigo Asano,Male,Human,1-20,172,brown,Karakura Town,Agent of the Shinigami Arc
+tatsuki,Tatsuki Arisawa,Female,Human,1-20,155,black,Karakura Town,Agent of the Shinigami Arc
+oscar,Oscar Joaquín de la Rosa,Male,Human,21-80,190,gray,Karakura Town,Agent of the Shinigami Arc
+chizuru,Chizuru Honshō,Female,Human,1-20,163,red,Karakura Town,Agent of the Shinigami Arc

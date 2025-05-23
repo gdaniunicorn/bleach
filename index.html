@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bleach guessing game</title>
+    <link rel="shortcut icon" href="" type="image/x-icon">
+<style>body{margin: 0;background-color:#353535;overflow:hidden;color:white;width:100vw;}
+main{margin:0;background-image:url(pics/bg-ichigo2.webp);background-size:cover;background-repeat:no-repeat;width:100%;height:100vh;padding-top:130px;}
+#nav{padding:10px;text-align:center;color:white;background-color: #1a1a1a;border-bottom:4px solid white;position:absolute;width:100vw;
+;& h1{margin:0;font-size:2.5em;}}
+#input-div{width:500px;height:auto;background-color: #1a1a1a;margin:auto;padding:20px;box-sizing:border-box;border:2px solid white;border-radius:10px;}
+#guess{width:280px;height:30px;font-size:20px;padding:0px 10px;}
+h2{font-size:34px;margin:0 0 20px;text-align:center;height:34px;line-height:34px;
+font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;}
+#send{width:30px;filter:invert(1);cursor:pointer;}
+#input-flex{display:flex;justify-content:center;align-items:center;
+;& *{margin:0 5px;}}
+#output{width:fit-content;background:rgba(26, 26, 26, 0.637);margin:30px auto;padding:14px 4px;border-radius:20px;}
+#attrs{display:flex;}
+.attr{padding:10px 0px;background-color:#353535;margin:0 12px;width:fit-content;font-size:14px;border-radius:10px;font-weight:bold;box-sizing:border-box;text-align:center
+;font-family:Verdana, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;border:2px solid #969696;}
+.card{width:100%;padding:20px 0px;box-sizing:border-box;display:flex}
+.card-attr{border-radius:10px;box-sizing:border-box;border:2px solid #969696;background-color:#353535;text-align:center;line-height:100px;margin:0 12px;font-size:14px;
+font-family:Verdana;font-weight:bold;display:flex;align-items:center;justify-content:center;}
+.correct{background-color:green !important;}
+.incorrect{background-color:#c50000 !important;}
+.card-img{width:100px;}
+.card-name{width:300px;}
+.card-gender{width:80px;}
+.card-race{width:120px;}
+.card-age{width:125px;}
+.index{width:14px;height:14px;background-color:white;display:inline;margin-left:4px;}
+.up{clip-path:polygon(50% 0%,100% 100%,0% 100%);}
+.down{clip-path:polygon(50% 100%,100% 0%,0% 0%);}
+.card-height{width:80px;}
+.card-hair{width:100px;}
+.card-location{width:155px;}
+.card-arc{width:300px;}
+
+</style></head><body><div id="nav"><h1>Bleach guessing game</h1></div>
+<main>
+<div id="input-div">
+    <h2>Guess someone</h2>
+    <div id="input-flex">
+        <input type="text" name="guess" id="guess" value="" placeholder="Type in a character's name...">
+        <img src="icons/send.png" alt="send" id="send">
+    </div>
+</div>
+
+<div id="output">
+  <div id="attrs">
+    <div class="attr" style="width:100px;">Image</div>
+    <div class="attr" style="width:300px;">Name</div>
+    <div class="attr" style="width:80px;">Gender</div>
+    <div class="attr" style="width:120px;">Race</div>
+    <div class="attr" style="width:125px;">Age</div>
+    <div class="attr" style="width:80px;">Height</div>
+    <div class="attr" style="width:100px;">Hair color</div>
+    <div class="attr" style="width:155px;">Location</div>
+    <div class="attr" style="width:300px;">First appearence</div>
+  </div>
+  <div class="card test">
+    <img src="pics/ichigo.jpg" alt="" class="card-img card-attr">
+    <div class="card-name card-attr correct">Oscar Joaquín de la Rosa</div>
+    <div class="card-attr card-gender incorrect">Female</div>
+    <div class="card-attr card-race">Fullbringer</div>
+    <div class="card-attr card-age">100-1000 <div class="index up"></div> </div>
+    <div class="card-attr card-height">222 <div class="index down"></div></div>
+    <div class="card-attr card-hair">Blonde</div>
+    <div class="card-attr card-location">Soul King Palace</div>
+    <div class="card-attr card-arc">Hueco Mundo Sneak Entry Arc</div>
+  </div>
+</div>
+
+</main>
+
+
+<script>
+const ages = ["1-20","21-80","100-1000","1000+"]
+
+var characters
+
+function loadFile(file,func){
+    fetch(file)
+      .then((res) => res.text())
+      .then(function(text){
+        var lines = text.trim().split("\n");
+        var headers = lines[0].split(',');
+
+        var data = [];
+
+        for(let i=1;i<lines.length;i++){
+            var dict = {};
+            var datas = lines[i].split(',');
+
+            for(let j=0;j<datas.length;j++){
+                dict[headers[j].trim()] = datas[j].trim();
+            }
+
+            data.push(dict);
+        }
+        //console.log(data);
+        
+        func(data);
+      })
+      .catch((e) => console.error(e));
+}
+
+loadFile("characters.txt",function(data){
+    console.log(data);
+})
+
+
+</script>
+
+
+</body></html>
