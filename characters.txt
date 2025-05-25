@@ -1,6 +1,13 @@
-code,name,gender,race,age,height,hair,location,arc
-ichigo,Ichigo Kurosaki,Male,Hybrid,1-20,181,ginger,Karakura Town,Agent of the Shinigami Arc
-keigo,Keigo Asano,Male,Human,1-20,172,brown,Karakura Town,Agent of the Shinigami Arc
-tatsuki,Tatsuki Arisawa,Female,Human,1-20,155,black,Karakura Town,Agent of the Shinigami Arc
-oscar,Oscar Joaquín de la Rosa,Male,Human,21-80,190,gray,Karakura Town,Agent of the Shinigami Arc
-chizuru,Chizuru Honshō,Female,Human,1-20,163,red,Karakura Town,Agent of the Shinigami Arc
+code,name,gender,race,age,height,hair,location,arc,sname
+ichigo,Ichigo Kurosaki,Male,Hybrid,1-20,181,ginger,Karakura Town,Agent of the Shinigami arc,ichigo kurosaki
+keigo,Keigo Asano,Male,Human,1-20,172,brown,Karakura Town,Agent of the Shinigami arc,keigo asano
+tatsuki,Tatsuki Arisawa,Female,Human,1-20,155,black,Karakura Town,Agent of the Shinigami arc,tatsuki arisawa
+abuelo,Oscar Joaquín de la Rosa,Male,Human,21-80,190,gray,Karakura Town,Agent of the Shinigami arc,abuelo oscar joaquin de la rosa
+chizuru,Chizuru Honshō,Female,Human,1-20,163,red,Karakura Town,Agent of the Shinigami arc,chizuru honsho
+orihime,Orihime Inoue,Female,Human,1-20,157,ginger,Karakura Town,Agent of the Shinigami arc,orihime inoue
+kanonji,Don Kanonji,Male,Human,21-80,185,black,Karakura Town,Agent of the Shinigami arc,don kanonji
+mizuiro,Mizuiro Kojima,Male,Human,1-20,154,black,Karakura Town,Agent of the Shinigami arc,mizuiro kojima
+karin,Karin Kurosaki,Female,Human,1-20,136,black,Karakura Town,Agent of the Shinigami arc,karin kurosaki
+yuzu,Yuzu Kurosaki,Female,Human,1-20,137,blonde,Karakura Town,Agent of the Shinigami arc,yuzu kurosaki
+riruka,Riruka Dokugamine,Female,Fullbringer,1-20,156,pink,Naruki City,The Lost Substitute Shinigami arc,riruka dokugamine
+kugo,Kūgo Ginjō,Male,Fullbringer,21-80,187,black,Naruki City,The Lost Substitute Shinigami arc,kugo ginjo
