@@ -56,7 +56,8 @@ function main(file){
     var input = document.getElementById("guess");
     var guesschar = undefined;
     var sol=undefined;
-    var j = document.getElementById("j"); //javaslatok
+    const j = document.getElementById("j"); //javaslatok
+    const ages = ["1-20","21-80","100-1000","1000+"]
 
 
   // define eventlistener handlers \\
@@ -121,8 +122,8 @@ function main(file){
             <div class="card-name card-attr ${char.name==sol.name ? 'correct':'incorrect'}">${char.name}</div>
             <div class="card-attr card-gender ${char.gender==sol.gender ? 'correct':'incorrect'}">${char.gender}</div>
             <div class="card-attr card-race ${char.race==sol.race ? 'correct':'incorrect'}">${char.race}</div>
-            <div class="card-attr card-age ${char.age==sol.age ? 'correct':'incorrect'}">${char.age} <div class="index up"></div> </div>
-            <div class="card-attr card-height ${char.height==sol.height ? 'correct':'incorrect'}">${char.height} <div class="index down"></div></div>
+            <div class="card-attr card-age ${char.age==sol.age ? 'correct':'incorrect'}">${char.age} <div class="index ${ages.findIndex(a => a==char.age) < ages.findIndex(a => a==sol.age) ? "up" : ages.findIndex(a => a==char.age)==ages.findIndex(a => a==sol.age)?"none":"down"}"></div> </div>
+            <div class="card-attr card-height ${char.height==sol.height ? 'correct':'incorrect'}">${char.height} <div class="index ${char.height < sol.height ? "up" : char.height==sol.height ? "none" : "down"}"></div></div>
             <div class="card-attr card-hair ${char.hair==sol.hair ? 'correct':'incorrect'}">${char.hair}</div>
             <div class="card-attr card-location ${char.location==sol.location ? 'correct':'incorrect'}">${char.location}</div>
             <div class="card-attr card-arc ${char.arc==sol.arc ? 'correct':'incorrect'}">${char.arc}</div>
@@ -149,12 +150,19 @@ function main(file){
 
       // generate the solution character
         var rand = Math.floor(Math.random()*(data.length-1))
-        while (rand == localStorage.getItem("last")){
+
+        while (rand == localStorage.getItem("last") || rand == localStorage.getItem("second") || rand == localStorage.getItem("third")) {
+            // if the random character is the same as the last 3 characters, generate a new one
             rand = Math.floor(Math.random()*(data.length-1))
         }
         sol = data[rand]
         console.log(sol);
+        // store the past 3 characters
+        if(localStorage.getItem("third")) localStorage.removeItem("third");
+        localStorage.setItem("third",localStorage.getItem("second") ? localStorage.getItem("second") : undefined);
+        localStorage.setItem("second",localStorage.getItem("last") ? localStorage.getItem("last") : undefined);
         localStorage.setItem("last", rand);
+        console.log("Last 3 characters:", `1. ${data[localStorage.getItem("last")].code}, `, localStorage.getItem("second")!=undefined ? `2. ${data[localStorage.getItem("second")].code}, ` : "No 2. character, ", localStorage.getItem("third")!=undefined ? `3. ${data[localStorage.getItem("third")].code}` : "No 3. character");
     }
 
   // START THE GAME \\
