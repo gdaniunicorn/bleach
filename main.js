@@ -43,12 +43,14 @@ function main(file){
 
     var data = undefined;
 
-  // retry \\
-    document.getElementById("retry").addEventListener("click",function(){
+  // restart \\
+    document.getElementById("retry").addEventListener("click",restart)
+    function restart(){
         document.getElementById("cards").innerHTML = "";
         document.getElementById("guess").value = "";
+        document.getElementById("j").style.display = "none";
         game();
-    })
+    }
 
   // VARIABLES \\
     var input = document.getElementById("guess");
@@ -68,6 +70,8 @@ function main(file){
         if(e.key=="Enter" && input.value.trim()!=="" && j.children.length>0){
             guesschar = j.children[0].id;
             guess();
+        }else if(e.key=="0"){
+            restart();
         }
     }
     function onclick(e){
@@ -90,9 +94,7 @@ function main(file){
 
   //  --INPUT FUNCTION--  \\
     function oninput(){
-        if(input.value.trim()!==""){
-            console.log(data);
-            
+        if(input.value.trim()!==""){            
             var chars = data.filter(c => c.sname.toLowerCase().includes(input.value.toLowerCase()));  //available characters
             j.innerHTML = chars.map(c => 
             `<div class="card-j" id="${c.code}">
@@ -127,27 +129,24 @@ function main(file){
         </div>` + out.innerHTML
     //|^ add char datas
     // remove guessed char
-        if(char.code !== sol.code){
-            data.splice(data.findIndex(c => c.code === guesschar),1);
-            input.value="";
-            j.style.display = "none";
-        }else{
-            window.alert("Kitaláltad!!!");
+        data.splice(data.findIndex(c => c.code === guesschar),1);
+        input.value="";
+        j.style.display = "none";
+        if(char.name === sol.name){
+            confetti({particleCount: 200,spread: 100,origin:{y: 0.7}});
+            confetti({particleCount: 200,spread: 100,origin:{x: 0.75,y: 0.9}});
+            confetti({particleCount: 200,spread: 100,origin:{x: 0.25,y: 0.4}});
+            confetti({particleCount: 200,spread: 100,origin:{x: 0.75,y: 0.4}});
+            confetti({particleCount: 200,spread: 100,origin:{x: 0.25,y: 0.9}});
         }
     }
-
-  // WIN FUNCTION \\
-    function win(){
-    }  
-
 
 
   // -- MAIN GAME FUNCTION --
     function game(){
       // setup
         data = file.slice();
-        console.log(data,file);
-        
+
       // generate the solution character
         var rand = Math.floor(Math.random()*(data.length-1))
         while (rand == localStorage.getItem("last")){
