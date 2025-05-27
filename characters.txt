@@ -11,3 +11,9 @@ karin,Karin Kurosaki,Female,Human,1-20,136,black,Karakura Town,Agent of the Shin
 yuzu,Yuzu Kurosaki,Female,Human,1-20,137,blonde,Karakura Town,Agent of the Shinigami arc,yuzu kurosaki
 riruka,Riruka Dokugamine,Female,Fullbringer,1-20,156,pink,Naruki City,The Lost Substitute Shinigami arc,riruka dokugamine
 kugo,Kūgo Ginjō,Male,Fullbringer,21-80,187,black,Naruki City,The Lost Substitute Shinigami arc,kugo ginjo
+giriko,Giriko Kutsuzawa,Male,Fullbringer,21-80,191,black,Naruki City,The Lost Substitute Shinigami arc,giriko kutsuzawa
+chad,Yasutora Sado,Male,Fullbringer,1-20,197,black,Karakura Town,Agent of the Shinigami arc,chad sado yasutora
+tsukishima,Shūkurō Tsukishima,Male,Fullbringer,21-80,198,black,Naruki City,The Lost Substitute Shinigami arc,shukuro tsukishima
+yukio,Yukio Hans Vorarlberna,Male,Fullbringer,1-20,154,blonde,Naruki City,The Lost Substitute Shinigami arc,yukio hans vorarlberna
+jackie,Jackie Tristan,Female,Fullbringer,21-80,164,black,Naruki City,The Lost Substitute Shinigami arc,jackie tristan
+renji,Renji Abarai,Male,Shinigami,100-1000,188,red,Seireitei,Agent of the Shinigami arc,renji abarai
